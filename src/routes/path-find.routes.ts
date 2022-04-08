@@ -55,9 +55,8 @@ const findShortestPath = (
   const visited: string[] = [];
   // find the nearest node
   let node = shortestDistanceNode(distances, visited);
-
   // for that node:
-  while (node) {
+  if (node) {
     // find its distance from the start node & its child nodes
     const distance = distances[node];
     const children = paths[node];

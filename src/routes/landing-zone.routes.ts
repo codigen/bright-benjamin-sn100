@@ -45,11 +45,10 @@ router.get(
 // Function to update
 export const isValidLandingZone = ({ R1: arr1, R2: arr2 }: ICoordinates) => {
   const valid: boolean[] = [];
+  const rOne = new Set([...arr1])
   for (let i = 0; i < arr2.length; i++) {
-    for (let j = 0; j < arr1.length; j++) {
-      if (arr2[i] === arr1[j]) {
-        valid.push(true);
-      }
+    if (rOne.has(arr2[i])) {
+      valid.push(true);
     }
   }
   if (valid.length === arr2.length) {
